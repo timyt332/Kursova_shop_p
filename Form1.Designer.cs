@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.buttonvhid = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.listcor = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -45,13 +45,13 @@
             this.buttonvhid.UseVisualStyleBackColor = true;
             this.buttonvhid.Click += new System.EventHandler(this.buttonvhid_Click);
             // 
-            // comboBox1
+            // listcor
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(34, 89);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(159, 21);
-            this.comboBox1.TabIndex = 1;
+            this.listcor.FormattingEnabled = true;
+            this.listcor.Location = new System.Drawing.Point(34, 89);
+            this.listcor.Name = "listcor";
+            this.listcor.Size = new System.Drawing.Size(159, 21);
+            this.listcor.TabIndex = 1;
             // 
             // label1
             // 
@@ -88,7 +88,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.listcor);
             this.Controls.Add(this.buttonvhid);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -101,7 +101,7 @@
         #endregion
 
         private System.Windows.Forms.Button buttonvhid;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox listcor;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;

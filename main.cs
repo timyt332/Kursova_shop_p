@@ -21,8 +21,8 @@ namespace kursovoi
 
             DataTable dataTable = new DataTable();
 
-            string connectionString = "server=localhost;port=3308;username=root;password=2726011013;database=plumber_shop;";
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            
+            using (MySqlConnection connection = new MySqlConnection(Bd.get_st()))
             {
                 using (MySqlCommand command = new MySqlCommand(queryString, connection))
                 {
@@ -37,7 +37,24 @@ namespace kursovoi
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                // Получаем первую выделенную строку
+                var selectedRow = dataGridView1.SelectedRows[0];
+
+                // Создаем новую строку в dataGridView2
+                dataGridView2.Rows.Add(selectedRow);
+
+                // Переносим данные из выделенной строки в новую строку
+                for (int i = 0; i < selectedRow.Cells.Count; i++)
+                {
+                    dataGridView2.Rows[dataGridView2.Rows.Count - 1].Cells[i].Value = selectedRow.Cells[i].Value;
+                }
+
+                // Опционально: удалить строку из исходной таблицы
+                // dataGridView1.Rows.Remove(selectedRow);
+            }
+            else { Console.WriteLine("AAAAAAAAAAAAAAa"); }
         }
     }
 }

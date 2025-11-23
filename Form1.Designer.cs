@@ -32,7 +32,7 @@
             this.listcor = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.parol = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonvhid
@@ -73,19 +73,19 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Пароль";
             // 
-            // textBox1
+            // parol
             // 
-            this.textBox1.Location = new System.Drawing.Point(34, 167);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(159, 20);
-            this.textBox1.TabIndex = 4;
+            this.parol.Location = new System.Drawing.Point(34, 167);
+            this.parol.Name = "parol";
+            this.parol.Size = new System.Drawing.Size(159, 20);
+            this.parol.TabIndex = 4;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(238, 290);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.parol);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listcor);
@@ -104,7 +104,7 @@
         private System.Windows.Forms.ComboBox listcor;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox parol;
     }
 }
 

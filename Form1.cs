@@ -43,12 +43,37 @@ namespace kursovoi
 
         private void buttonvhid_Click(object sender, EventArgs e)
         {
-            
-                var selectedItem = listcor.SelectedValue;
-            MessageBox.Show(selectedItem.ToString());
-            main myForm = new main();
-            myForm.Show();
-            this.Hide();
+
+            if (parol.Text != "")
+            {
+                string queryString = "SELECT * FROM plumber_shop.spivrobitnik where s_id=@id";
+
+                DataTable dataTable = new DataTable();
+
+
+                using (MySqlConnection connection = new MySqlConnection(Bd.get_st()))
+                {
+                    using (MySqlCommand command = new MySqlCommand(queryString, connection))
+                    {
+                        command.Parameters.Add("@id",MySqlDbType.UInt32).Value = Int32.Parse((listcor.SelectedValue.ToString()));
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                        {
+                            adapter.Fill(dataTable);
+                        }
+                    }
+                }
+                
+                if (parol.Text == dataTable.Rows[0][5].ToString())
+                {
+                    MessageBox.Show(listcor.SelectedValue.ToString());
+                    cor.id = Int32.Parse((listcor.SelectedValue.ToString()));
+                    main myForm = new main();
+                    myForm.Show();
+                    this.Hide();
+                }
+                else { MessageBox.Show("Невірний пароль"); }
+            }
+            else { MessageBox.Show("Введіть пароль"); }
         }
     }
 }

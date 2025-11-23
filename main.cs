@@ -50,7 +50,6 @@ namespace kursovoi
                 {
                     dataGridView2.Rows[dataGridView2.Rows.Count - 1].Cells[i].Value = selectedRow.Cells[i].Value;
                 }
-
                 // Опционально: удалить строку из исходной таблицы
                 // dataGridView1.Rows.Remove(selectedRow);
             }

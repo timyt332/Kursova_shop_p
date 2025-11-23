@@ -21,5 +21,12 @@ namespace kursovoi
         {
 
         }
+
+        private void buttonvhid_Click(object sender, EventArgs e)
+        {
+            main myForm = new main();
+            myForm.Show();
+            this.Hide();
+        }
     }
 }

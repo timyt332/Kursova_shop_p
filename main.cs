@@ -17,10 +17,6 @@ namespace kursovoi
         public main()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
             string queryString = "SELECT * FROM plumber_shop.tovar";
 
             DataTable dataTable = new DataTable();
@@ -28,7 +24,6 @@ namespace kursovoi
             string connectionString = "server=localhost;port=3308;username=root;password=2726011013;database=plumber_shop;";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                connection.Open();
                 using (MySqlCommand command = new MySqlCommand(queryString, connection))
                 {
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
@@ -38,6 +33,11 @@ namespace kursovoi
                     }
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -43,7 +43,7 @@ namespace kursovoi
                 var selectedRow = dataGridView1.SelectedRows[0];
 
                 // Создаем новую строку в dataGridView2
-                dataGridView2.Rows.Add(selectedRow);
+                dataGridView2.Rows.Add();
 
                 // Переносим данные из выделенной строки в новую строку
                 for (int i = 0; i < selectedRow.Cells.Count; i++)

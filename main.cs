@@ -17,7 +17,7 @@ namespace kursovoi
         public main()
         {
             InitializeComponent();
-            string queryString = "SELECT * FROM plumber_shop.tovar";
+            string queryString = "SELECT * FROM plumber_shop.tovare";
 
             DataTable dataTable = new DataTable();
 
@@ -40,20 +40,19 @@ namespace kursovoi
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 // Получаем первую выделенную строку
-                var selectedRow = dataGridView1.SelectedRows[0];
-
-                // Создаем новую строку в dataGridView2
-                dataGridView2.Rows.Add();
-
-                // Переносим данные из выделенной строки в новую строку
-                for (int i = 0; i < selectedRow.Cells.Count; i++)
-                {
-                    dataGridView2.Rows[dataGridView2.Rows.Count - 1].Cells[i].Value = selectedRow.Cells[i].Value;
-                }
-                // Опционально: удалить строку из исходной таблицы
-                // dataGridView1.Rows.Remove(selectedRow);
+                var selectedRow = dataGridView1.SelectedRows[0].Cells[0].Value;
+                MessageBox.Show(selectedRow.ToString());
+                Product a = new Product(Int32.Parse(selectedRow.ToString()));
+                cor.Products.Add(a);
+                
             }
             else { Console.WriteLine("AAAAAAAAAAAAAAa"); }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dataGridView2.DataSource = cor.Products;
+            //foreach p in cor.Products
         }
     }
 }

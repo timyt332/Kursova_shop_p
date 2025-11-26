@@ -37,7 +37,7 @@
             // 
             // buttonvhid
             // 
-            this.buttonvhid.Location = new System.Drawing.Point(74, 207);
+            this.buttonvhid.Location = new System.Drawing.Point(171, 216);
             this.buttonvhid.Name = "buttonvhid";
             this.buttonvhid.Size = new System.Drawing.Size(75, 23);
             this.buttonvhid.TabIndex = 0;
@@ -50,7 +50,7 @@
             this.listcor.FormattingEnabled = true;
             this.listcor.Location = new System.Drawing.Point(34, 89);
             this.listcor.Name = "listcor";
-            this.listcor.Size = new System.Drawing.Size(159, 21);
+            this.listcor.Size = new System.Drawing.Size(338, 21);
             this.listcor.TabIndex = 1;
             // 
             // label1
@@ -77,14 +77,14 @@
             // 
             this.parol.Location = new System.Drawing.Point(34, 167);
             this.parol.Name = "parol";
-            this.parol.Size = new System.Drawing.Size(159, 20);
+            this.parol.Size = new System.Drawing.Size(338, 20);
             this.parol.TabIndex = 4;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(238, 290);
+            this.ClientSize = new System.Drawing.Size(407, 319);
             this.Controls.Add(this.parol);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

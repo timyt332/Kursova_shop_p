@@ -19,8 +19,7 @@ namespace kursovoi
         public main()
         {
             InitializeComponent();
-            //Form1.Close();
-            string queryString = "SELECT * FROM tovare";
+            string queryString = "SELECT * FROM tovar";
 
             DataTable dataTable = new DataTable();
 
@@ -41,7 +40,6 @@ namespace kursovoi
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                // Получаем первую выделенную строку
                 var selectedRow = dataGridView1.SelectedRows[0].Cells[0].Value;
                 MessageBox.Show(selectedRow.ToString());
                 Product a = new Product(Int32.Parse(selectedRow.ToString()));

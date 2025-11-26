@@ -76,6 +76,7 @@
             // parol
             // 
             this.parol.Location = new System.Drawing.Point(34, 167);
+            this.parol.MaxLength = 10;
             this.parol.Name = "parol";
             this.parol.Size = new System.Drawing.Size(338, 20);
             this.parol.TabIndex = 4;

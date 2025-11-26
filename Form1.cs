@@ -116,11 +116,11 @@ namespace kursovoi
                     this.Hide();
                 }
                 else { MessageBox.Show("Невірний пароль ");
-                    Console.WriteLine(dataTable.Rows[0][6].ToString());
+                    Console.WriteLine(dataTable.Rows[0][7].ToString());
                     Console.WriteLine(HashPassword(parol.Text));
                 }
             }
-            else { Console.WriteLine(HashPassword("1234івівівів")); }
+            else { Console.WriteLine("Введіть пароль"); }
         }
     }
 }

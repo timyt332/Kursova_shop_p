@@ -8,7 +8,7 @@ namespace kursovoi
 {
     public static class Bd
     {
-        static string connectionString = "server=localhost;port=3308;username=root;password=2726011013;database=plumber_shop;";
+        static string connectionString = "server=localhost;port=3308;username=root;password=2726011013;database=plumbers_shop;";
         public static string get_st() {  return connectionString; }
     }
 }

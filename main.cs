@@ -17,7 +17,7 @@ namespace kursovoi
         public main()
         {
             InitializeComponent();
-            string queryString = "SELECT * FROM plumber_shop.tovare";
+            string queryString = "SELECT * FROM tovare";
 
             DataTable dataTable = new DataTable();
 

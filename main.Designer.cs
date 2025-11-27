@@ -33,6 +33,7 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.kilkist_t = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilkist_t)).BeginInit();
@@ -96,11 +97,22 @@
             0,
             0});
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(914, 439);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(157, 25);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Загальна ціна:";
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1507, 568);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.kilkist_t);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView2);
@@ -112,6 +124,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilkist_t)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -122,5 +135,6 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.NumericUpDown kilkist_t;
+        private System.Windows.Forms.Label label1;
     }
 }

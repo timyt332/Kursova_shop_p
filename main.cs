@@ -40,18 +40,30 @@ namespace kursovoi
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                var selectedRow = dataGridView1.SelectedRows[0].Cells[0].Value;
-                MessageBox.Show(selectedRow.ToString());
-                Product a = new Product(Int32.Parse(selectedRow.ToString()));
+                var selectedRow = dataGridView1.SelectedRows[0];
+                //MessageBox.Show(selectedRow.ToString());
+                Product a = new Product(selectedRow.Cells[0].Value.ToString(), (int)kilkist_t.Value, decimal.Parse( selectedRow.Cells[1].Value.ToString()));
                 cor.Products.Add(a);
                 
             }
             else { Console.WriteLine("AAAAAAAAAAAAAAa"); }
         }
-
+        
         private void button2_Click(object sender, EventArgs e)
         {
+
+            // Создаем список объектов
+            /*List<Product> people = new List<Product>
+            {
+                new Product ("1", 3,  30 ),
+                new Product ("23",2,  25 ),
+                new Product ( "131ds",1, 35 )
+            };*/
+            
+            // Связываем DataGridView с источником данных
             dataGridView2.DataSource = cor.Products;
+            Console.WriteLine("12313");
+            //dataGridView2.DataSource = cor.Products;
             //foreach p in cor.Products
         }
     }

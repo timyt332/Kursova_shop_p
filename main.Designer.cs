@@ -32,10 +32,10 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.kilkist_t = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kilkist_t)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -74,23 +74,23 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // numericUpDown1
+            // kilkist_t
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(12, 92);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.kilkist_t.Location = new System.Drawing.Point(12, 92);
+            this.kilkist_t.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.kilkist_t.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 4;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.kilkist_t.Name = "kilkist_t";
+            this.kilkist_t.Size = new System.Drawing.Size(120, 20);
+            this.kilkist_t.TabIndex = 4;
+            this.kilkist_t.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -101,7 +101,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1507, 568);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.kilkist_t);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
@@ -110,7 +110,7 @@
             this.Text = "main";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kilkist_t)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -121,6 +121,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown kilkist_t;
     }
 }

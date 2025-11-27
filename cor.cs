@@ -50,18 +50,12 @@ namespace kursovoi
             return $"Страва: {Name}, Кількість: {Quantity}, Ціна: {Price:C}";
         }
     }*/
-    public struct Product
+    public class Product
     {
-        public int name;
-        public int quantity;
-        public decimal price;
-        public Product(int name)
-        {
-            this.name = name;
-            this.quantity = 1;
-            this.price = 1;
-        }
-        public Product(int name, int quantity, decimal price)
+        public string name { get; set; }
+        public int quantity { get; set; }
+        public decimal price { get; set; }
+        public Product(string name, int quantity, decimal price)
         {
             this.name = name;
             this.quantity = quantity;
@@ -72,9 +66,9 @@ namespace kursovoi
     public static class cor
     {
         public static int id;
-        private static List<Product> products = new List<Product>();
+        //private static List<Product> products = new List<Product>();
 
-        public static List<Product> Products { get => products; set => products = value; }
+        public static List<Product> Products = new List<Product>(); //{ get => products; set => products = value; }
     }
 }
     

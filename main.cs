@@ -41,7 +41,7 @@ namespace kursovoi
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                if ((int)kilkist_t.Value < Int32.Parse(dataGridView1.SelectedRows[0].Cells[4].Value.ToString()))
+                if ((int)kilkist_t.Value <= Int32.Parse(dataGridView1.SelectedRows[0].Cells[4].Value.ToString()))
                 { 
                     var selectedRow = dataGridView1.SelectedRows[0];
                     //MessageBox.Show(selectedRow.ToString());
@@ -60,9 +60,63 @@ namespace kursovoi
             decimal summa = 0;
             foreach (var Product in cor.Products)
             {
-                summa=Product.price* Product.quantity;
+                summa+=Product.price* Product.quantity;
             }
             label1.Text = "Загальна ціна:"+ summa.ToString();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DataTable dataTable = new DataTable();
+            int i = 0;
+            using (MySqlConnection connection = new MySqlConnection(Bd.get_st()))
+            {
+                connection.Open();
+                string queryString = "call add_prodag(@CustomerID);";
+
+                    using (MySqlCommand command = new MySqlCommand(queryString, connection))
+                    {
+                        command.Parameters.AddWithValue("@CustomerID", cor.id);
+                    
+                        i =command.ExecuteNonQuery();
+
+                    }
+                    string queryString2 = "call add_prodag_list(@n,@k);";
+                foreach (var Product in cor.Products)
+                {
+                    using (MySqlCommand command = new MySqlCommand(queryString2, connection))
+                    {
+                        
+                        command.Parameters.AddWithValue("@n", Product.name);
+                        command.Parameters.AddWithValue("@k", Int32.Parse(Product.quantity.ToString()));
+                        i =command.ExecuteNonQuery();
+                        Console.WriteLine(Product.price.ToString());
+                        Console.WriteLine(Product.quantity.ToString());
+                    }
+                }
+                cor.Products.Clear();
+                dataGridView2.DataSource = null;
+                dataGridView2.DataSource = cor.Products;
+                label1.Text = "Загальна ціна:" ;
+                dataGridView1.DataSource = null;
+                string queryString4 = "SELECT * FROM tovar";
+
+                DataTable dataTable1 = new DataTable();
+
+
+                using (MySqlConnection connection2 = new MySqlConnection(Bd.get_st()))
+                {
+                    using (MySqlCommand command = new MySqlCommand(queryString4, connection2))
+                    {
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                        {
+                            adapter.Fill(dataTable1);
+                            dataGridView1.DataSource = dataTable1;
+                        }
+                    }
+                }
+
+            }
         }
     }
 }

@@ -43,6 +43,7 @@ namespace kursovoi
             {
                 if ((int)kilkist_t.Value <= Int32.Parse(dataGridView1.SelectedRows[0].Cells[4].Value.ToString()))
                 { 
+
                     var selectedRow = dataGridView1.SelectedRows[0];
                     //MessageBox.Show(selectedRow.ToString());
                     Product a = new Product(selectedRow.Cells[0].Value.ToString(), (int)kilkist_t.Value, decimal.Parse( selectedRow.Cells[1].Value.ToString()));
@@ -62,7 +63,7 @@ namespace kursovoi
             {
                 summa+=Product.price* Product.quantity;
             }
-            label1.Text = "Загальна ціна:"+ summa.ToString();
+            label1.Text = "Загальна ціна:"+ summa.ToString()+ " (грн)";
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -88,10 +89,8 @@ namespace kursovoi
                     {
                         
                         command.Parameters.AddWithValue("@n", Product.name);
-                        command.Parameters.AddWithValue("@k", Int32.Parse(Product.quantity.ToString()));
+                        command.Parameters.AddWithValue("@k", Product.quantity);
                         i =command.ExecuteNonQuery();
-                        Console.WriteLine(Product.price.ToString());
-                        Console.WriteLine(Product.quantity.ToString());
                     }
                 }
                 cor.Products.Clear();

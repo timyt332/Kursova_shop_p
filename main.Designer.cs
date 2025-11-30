@@ -37,6 +37,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.text_serch = new System.Windows.Forms.TextBox();
             this.box_kat = new System.Windows.Forms.ComboBox();
+            this.box_kra = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilkist_t)).BeginInit();
@@ -137,11 +138,21 @@
             this.box_kat.TabIndex = 8;
             this.box_kat.SelectedIndexChanged += new System.EventHandler(this.box_kat_SelectedIndexChanged);
             // 
+            // box_kra
+            // 
+            this.box_kra.FormattingEnabled = true;
+            this.box_kra.Location = new System.Drawing.Point(12, 245);
+            this.box_kra.Name = "box_kra";
+            this.box_kra.Size = new System.Drawing.Size(132, 21);
+            this.box_kra.TabIndex = 9;
+            this.box_kra.SelectedIndexChanged += new System.EventHandler(this.box_kra_SelectedIndexChanged);
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1507, 568);
+            this.Controls.Add(this.box_kra);
             this.Controls.Add(this.box_kat);
             this.Controls.Add(this.text_serch);
             this.Controls.Add(this.button3);
@@ -176,5 +187,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox text_serch;
         private System.Windows.Forms.ComboBox box_kat;
+        private System.Windows.Forms.ComboBox box_kra;
     }
 }

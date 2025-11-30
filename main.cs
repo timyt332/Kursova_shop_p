@@ -17,26 +17,30 @@ namespace kursovoi
 {
     public partial class main : Form
     {
+        string bez_fil = "Усі";
         public main()
         {
             InitializeComponent();
-            string queryString = "SELECT * FROM tovar";
-
-            DataTable dataTable = new DataTable();
-
             
-            using (MySqlConnection connection = new MySqlConnection(Bd.get_st()))
+        }
+        private void main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Console.WriteLine("6. FormClosing - форма закривається");
+
+            // Можливість скасувати закриття
+            DialogResult result = MessageBox.Show(
+                "Ви впевнені, що хочете закрити форму?",
+                "Підтвердження",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
             {
-                using (MySqlCommand command = new MySqlCommand(queryString, connection))
-                {
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
-                    {
-                        adapter.Fill(dataTable);
-                        dataGridView1.DataSource = dataTable;
-                    }
-                }
+                e.Cancel = true; // Скасувати закриття
             }
         }
+
+        
         private void button1_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -52,6 +56,14 @@ namespace kursovoi
                 else { MessageBox.Show("Кількість повинна бути менша "+ dataGridView1.SelectedRows[0].Cells[4].Value.ToString()); }
             }
             else { Console.WriteLine("Нічого не виділено"); }
+            dataGridView2.DataSource = null;
+            dataGridView2.DataSource = cor.Products;
+            decimal summa = 0;
+            foreach (var Product in cor.Products)
+            {
+                summa += Product.price * Product.quantity;
+            }
+            label1.Text = "Загальна ціна:" + summa.ToString() + " (грн)";
         }
         
         private void button2_Click(object sender, EventArgs e)
@@ -116,6 +128,59 @@ namespace kursovoi
                 }
 
             }
+        }
+        private void filt_g1()
+        {
+            string p = $" AND ";
+            string kat = $"Категорія Like '%{box_kat.Text}%'";
+            string fil = $"Назва Like '%{text_serch.Text}%'";
+            if (box_kat.Text.ToString() != bez_fil)
+                fil += p + kat;
+            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = fil;
+        }
+        private void text_serch_TextChanged(object sender, EventArgs e)
+        {
+            filt_g1();
+        }
+
+        private void main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //Form1.Close();
+        }
+
+        private void box_kat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            filt_g1();
+        }
+
+        private void main_Load(object sender, EventArgs e)
+        {
+            string queryString = "SELECT * FROM tovar";
+
+            DataTable dataTable = new DataTable();
+            Bd.in_datable(queryString, dataTable);
+            dataGridView1.DataSource = dataTable;
+                    
+                        
+            string queryString2 = "SELECT * FROM kategoria";
+
+            DataTable dataTable2 = new DataTable();
+
+            box_kat.Items.Add(bez_fil);
+            using (MySqlConnection connection = new MySqlConnection(Bd.get_st()))
+            {
+                using (MySqlCommand command = new MySqlCommand(queryString2, connection))
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        adapter.Fill(dataTable2);
+                        foreach (DataRow row in dataTable2.Rows)
+                        box_kat.Items.Add(row[1].ToString());
+                    }
+                }
+            }
+            
+            box_kat.SelectedIndex = 0;
         }
     }
 }

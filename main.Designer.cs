@@ -35,6 +35,8 @@
             this.kilkist_t = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.text_serch = new System.Windows.Forms.TextBox();
+            this.box_kat = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilkist_t)).BeginInit();
@@ -118,11 +120,30 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // text_serch
+            // 
+            this.text_serch.Location = new System.Drawing.Point(12, 152);
+            this.text_serch.Name = "text_serch";
+            this.text_serch.Size = new System.Drawing.Size(132, 20);
+            this.text_serch.TabIndex = 7;
+            this.text_serch.TextChanged += new System.EventHandler(this.text_serch_TextChanged);
+            // 
+            // box_kat
+            // 
+            this.box_kat.FormattingEnabled = true;
+            this.box_kat.Location = new System.Drawing.Point(12, 195);
+            this.box_kat.Name = "box_kat";
+            this.box_kat.Size = new System.Drawing.Size(132, 21);
+            this.box_kat.TabIndex = 8;
+            this.box_kat.SelectedIndexChanged += new System.EventHandler(this.box_kat_SelectedIndexChanged);
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1507, 568);
+            this.Controls.Add(this.box_kat);
+            this.Controls.Add(this.text_serch);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.kilkist_t);
@@ -131,7 +152,11 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Name = "main";
-            this.Text = "main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Головна";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.main_FormClosed);
+            this.Load += new System.EventHandler(this.main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilkist_t)).EndInit();
@@ -149,5 +174,7 @@
         private System.Windows.Forms.NumericUpDown kilkist_t;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox text_serch;
+        private System.Windows.Forms.ComboBox box_kat;
     }
 }

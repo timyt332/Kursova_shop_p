@@ -109,10 +109,8 @@ namespace kursovoi
                 }
                 if (VerifyHashedPassword( dataTable.Rows[0][7].ToString(),parol.Text))
                 {
-                    MessageBox.Show(listcor.SelectedValue.ToString());
+                    //MessageBox.Show(listcor.SelectedValue.ToString());
                     cor.id = Int32.Parse((listcor.SelectedValue.ToString()));
-                    main myForm = new main();
-                    myForm.Show();
                     this.Hide();
                 }
                 else { MessageBox.Show("Невірний пароль ");

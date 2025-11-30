@@ -16,7 +16,9 @@ namespace kursovoi
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Form1 m = new Form1();
+            m.ShowDialog();
+            if (cor.id != 0) Application.Run(new main());
             //Під час розробки
             //Application.Run(new main());
         }

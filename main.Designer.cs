@@ -41,6 +41,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label_spiv = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilkist_t)).BeginInit();
@@ -62,7 +63,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(222, 24);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(535, 384);
+            this.dataGridView1.Size = new System.Drawing.Size(610, 624);
             this.dataGridView1.TabIndex = 1;
             // 
             // dataGridView2
@@ -70,12 +71,12 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(888, 34);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(595, 374);
+            this.dataGridView2.Size = new System.Drawing.Size(618, 460);
             this.dataGridView2.TabIndex = 2;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1301, 436);
+            this.button2.Location = new System.Drawing.Point(1334, 521);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(116, 44);
             this.button2.TabIndex = 3;
@@ -110,7 +111,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(914, 439);
+            this.label1.Location = new System.Drawing.Point(947, 524);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(157, 25);
             this.label1.TabIndex = 5;
@@ -118,7 +119,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(945, 491);
+            this.button3.Location = new System.Drawing.Point(978, 576);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(159, 52);
             this.button3.TabIndex = 6;
@@ -185,11 +186,24 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Країна";
             // 
+            // label_spiv
+            // 
+            this.label_spiv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label_spiv.AutoSize = true;
+            this.label_spiv.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_spiv.Location = new System.Drawing.Point(12, 712);
+            this.label_spiv.Name = "label_spiv";
+            this.label_spiv.Size = new System.Drawing.Size(68, 24);
+            this.label_spiv.TabIndex = 13;
+            this.label_spiv.Text = "Нічого";
+            this.label_spiv.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1507, 568);
+            this.ClientSize = new System.Drawing.Size(1855, 745);
+            this.Controls.Add(this.label_spiv);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -232,5 +246,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label_spiv;
     }
 }

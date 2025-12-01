@@ -23,6 +23,46 @@ namespace kursovoi
             InitializeComponent();
             
         }
+        private void main_Load(object sender, EventArgs e)
+        {
+            string queryString = "SELECT * FROM tovar";
+            DataTable dataTable = new DataTable();
+            Bd.in_datable(queryString, dataTable);
+            dataGridView1.DataSource = dataTable;
+
+            queryString = "SELECT * FROM kategoria";
+            DataTable dataTable2 = new DataTable();
+            Bd.in_datable(queryString, dataTable2);
+            box_kat.Items.Add(bez_fil);
+            foreach (DataRow row in dataTable2.Rows) box_kat.Items.Add(row[1].ToString());
+            box_kat.SelectedIndex = 0;
+
+            queryString = "SELECT * FROM centures";
+            DataTable dataTable3 = new DataTable();
+            Bd.in_datable(queryString, dataTable3);
+            box_kra.Items.Add(bez_fil);
+            foreach (DataRow row in dataTable3.Rows) box_kra.Items.Add(row[1].ToString());
+            box_kra.SelectedIndex = 0;
+
+            queryString = "SELECT concat(\"Посада: \",s_pos,\"     Робітник: \",s_fnam,\" \",s_nam,\" \",s_mnam) FROM spivrobitnik where s_id=@id";
+
+            DataTable dataTable4 = new DataTable();
+
+
+            using (MySqlConnection connection = new MySqlConnection(Bd.get_st()))
+            {
+                using (MySqlCommand command = new MySqlCommand(queryString, connection))
+                {
+                    command.Parameters.AddWithValue("@id", cor.id);
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        adapter.Fill(dataTable4);
+                    }
+                }
+
+            }
+            label_spiv.Text = dataTable4.Rows[0][0].ToString();
+        }
         private void main_FormClosing(object sender, FormClosingEventArgs e)
         {
             // Можливість скасувати закриття
@@ -139,27 +179,7 @@ namespace kursovoi
             filt_g1();
         }
 
-        private void main_Load(object sender, EventArgs e)
-        {
-            string queryString = "SELECT * FROM tovar";
-            DataTable dataTable = new DataTable();
-            Bd.in_datable(queryString, dataTable);
-            dataGridView1.DataSource = dataTable;
-
-            queryString = "SELECT * FROM kategoria";
-            DataTable dataTable2 = new DataTable();
-            Bd.in_datable(queryString, dataTable2);
-            box_kat.Items.Add(bez_fil);
-            foreach (DataRow row in dataTable2.Rows)box_kat.Items.Add(row[1].ToString());
-            box_kat.SelectedIndex = 0;
-
-            queryString = "SELECT * FROM centures";
-            DataTable dataTable3 = new DataTable();
-            Bd.in_datable(queryString, dataTable3);
-            box_kra.Items.Add(bez_fil);
-            foreach (DataRow row in dataTable3.Rows) box_kra.Items.Add(row[1].ToString());
-            box_kra.SelectedIndex = 0;
-        }
+        
 
         private void box_kra_SelectedIndexChanged(object sender, EventArgs e)
         {

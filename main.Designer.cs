@@ -42,9 +42,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label_spiv = new System.Windows.Forms.Label();
+            this.button_fil = new System.Windows.Forms.Button();
+            this.pag_n = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilkist_t)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pag_n)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -63,7 +66,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(222, 24);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(610, 624);
+            this.dataGridView1.Size = new System.Drawing.Size(610, 525);
             this.dataGridView1.TabIndex = 1;
             // 
             // dataGridView2
@@ -198,11 +201,48 @@
             this.label_spiv.Text = "Нічого";
             this.label_spiv.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
+            // button_fil
+            // 
+            this.button_fil.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button_fil.Location = new System.Drawing.Point(3, 450);
+            this.button_fil.Name = "button_fil";
+            this.button_fil.Size = new System.Drawing.Size(184, 44);
+            this.button_fil.TabIndex = 14;
+            this.button_fil.Text = "Очистити фільтри";
+            this.button_fil.UseVisualStyleBackColor = true;
+            this.button_fil.Click += new System.EventHandler(this.button_fil_Click);
+            // 
+            // pag_n
+            // 
+            this.pag_n.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.pag_n.Location = new System.Drawing.Point(414, 555);
+            this.pag_n.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.pag_n.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.pag_n.Name = "pag_n";
+            this.pag_n.Size = new System.Drawing.Size(120, 29);
+            this.pag_n.TabIndex = 15;
+            this.pag_n.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.pag_n.ValueChanged += new System.EventHandler(this.pag_n_ValueChanged);
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1855, 745);
+            this.Controls.Add(this.pag_n);
+            this.Controls.Add(this.button_fil);
             this.Controls.Add(this.label_spiv);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -226,6 +266,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilkist_t)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pag_n)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,5 +288,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label_spiv;
+        private System.Windows.Forms.Button button_fil;
+        private System.Windows.Forms.NumericUpDown pag_n;
     }
 }

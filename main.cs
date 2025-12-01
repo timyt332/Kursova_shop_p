@@ -62,6 +62,8 @@ namespace kursovoi
 
             }
             label_spiv.Text = dataTable4.Rows[0][0].ToString();
+
+
         }
         private void main_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -103,6 +105,10 @@ namespace kursovoi
             }
             label1.Text = "Загальна ціна:" + summa.ToString() + " (грн)";
             kilkist_t.Value = 1;
+            /*
+            dataGridView2.Columns.Add("name", "Назва");
+            dataGridView2.Columns.Add("quantity", "Кількість");
+            dataGridView2.Columns.Add("price", "Ціна");*/
         }
         
         private void button2_Click(object sender, EventArgs e)
@@ -184,6 +190,20 @@ namespace kursovoi
         private void box_kra_SelectedIndexChanged(object sender, EventArgs e)
         {
             filt_g1();
+        }
+
+        private void button_fil_Click(object sender, EventArgs e)
+        {
+            box_kat.SelectedIndex = 0;
+            box_kra.SelectedIndex = 0;
+            text_serch.Text = "";
+            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = "";
+        }
+
+        private void pag_n_ValueChanged(object sender, EventArgs e)
+        {
+            //(dataGridView1.DataSource as DataTable).Rows.;
+            
         }
     }
 }

@@ -38,6 +38,9 @@
             this.text_serch = new System.Windows.Forms.TextBox();
             this.box_kat = new System.Windows.Forms.ComboBox();
             this.box_kra = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilkist_t)).BeginInit();
@@ -45,9 +48,10 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.Location = new System.Drawing.Point(12, 24);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 44);
+            this.button1.Size = new System.Drawing.Size(175, 44);
             this.button1.TabIndex = 0;
             this.button1.Text = "Додати в кошик";
             this.button1.UseVisualStyleBackColor = true;
@@ -81,6 +85,7 @@
             // 
             // kilkist_t
             // 
+            this.kilkist_t.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.kilkist_t.Location = new System.Drawing.Point(12, 92);
             this.kilkist_t.Maximum = new decimal(new int[] {
             10000,
@@ -93,7 +98,7 @@
             0,
             0});
             this.kilkist_t.Name = "kilkist_t";
-            this.kilkist_t.Size = new System.Drawing.Size(120, 20);
+            this.kilkist_t.Size = new System.Drawing.Size(120, 29);
             this.kilkist_t.TabIndex = 4;
             this.kilkist_t.Value = new decimal(new int[] {
             1,
@@ -123,35 +128,71 @@
             // 
             // text_serch
             // 
-            this.text_serch.Location = new System.Drawing.Point(12, 152);
+            this.text_serch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.text_serch.Location = new System.Drawing.Point(10, 160);
             this.text_serch.Name = "text_serch";
-            this.text_serch.Size = new System.Drawing.Size(132, 20);
+            this.text_serch.Size = new System.Drawing.Size(132, 29);
             this.text_serch.TabIndex = 7;
             this.text_serch.TextChanged += new System.EventHandler(this.text_serch_TextChanged);
             // 
             // box_kat
             // 
+            this.box_kat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.box_kat.FormattingEnabled = true;
-            this.box_kat.Location = new System.Drawing.Point(12, 195);
+            this.box_kat.Location = new System.Drawing.Point(10, 221);
             this.box_kat.Name = "box_kat";
-            this.box_kat.Size = new System.Drawing.Size(132, 21);
+            this.box_kat.Size = new System.Drawing.Size(132, 32);
             this.box_kat.TabIndex = 8;
             this.box_kat.SelectedIndexChanged += new System.EventHandler(this.box_kat_SelectedIndexChanged);
             // 
             // box_kra
             // 
+            this.box_kra.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.box_kra.FormattingEnabled = true;
-            this.box_kra.Location = new System.Drawing.Point(12, 245);
+            this.box_kra.Location = new System.Drawing.Point(10, 283);
             this.box_kra.Name = "box_kra";
-            this.box_kra.Size = new System.Drawing.Size(132, 21);
+            this.box_kra.Size = new System.Drawing.Size(132, 32);
             this.box_kra.TabIndex = 9;
             this.box_kra.SelectedIndexChanged += new System.EventHandler(this.box_kra_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(10, 133);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 24);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Пошук";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(10, 194);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 24);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Категорія";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(10, 256);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 24);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Країна";
             // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1507, 568);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.box_kra);
             this.Controls.Add(this.box_kat);
             this.Controls.Add(this.text_serch);
@@ -166,7 +207,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Головна";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.main_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.main_FormClosing);
             this.Load += new System.EventHandler(this.main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -188,5 +229,8 @@
         private System.Windows.Forms.TextBox text_serch;
         private System.Windows.Forms.ComboBox box_kat;
         private System.Windows.Forms.ComboBox box_kra;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

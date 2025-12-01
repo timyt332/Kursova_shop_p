@@ -25,11 +25,9 @@ namespace kursovoi
         }
         private void main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Console.WriteLine("6. FormClosing - форма закривається");
-
             // Можливість скасувати закриття
             DialogResult result = MessageBox.Show(
-                "Ви впевнені, що хочете закрити форму?",
+                "Ви впевнені, що хочете вийти?",
                 "Підтвердження",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
@@ -64,6 +62,7 @@ namespace kursovoi
                 summa += Product.price * Product.quantity;
             }
             label1.Text = "Загальна ціна:" + summa.ToString() + " (грн)";
+            kilkist_t.Value = 1;
         }
         
         private void button2_Click(object sender, EventArgs e)
@@ -113,19 +112,8 @@ namespace kursovoi
                 string queryString4 = "SELECT * FROM tovar";
 
                 DataTable dataTable1 = new DataTable();
-
-
-                using (MySqlConnection connection2 = new MySqlConnection(Bd.get_st()))
-                {
-                    using (MySqlCommand command = new MySqlCommand(queryString4, connection2))
-                    {
-                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
-                        {
-                            adapter.Fill(dataTable1);
-                            dataGridView1.DataSource = dataTable1;
-                        }
-                    }
-                }
+                Bd.in_datable(queryString4, dataTable1);
+                dataGridView1.DataSource = dataTable1;
 
             }
         }
@@ -134,7 +122,7 @@ namespace kursovoi
             string p = $" AND ";
             string kat = $"Категорія Like '%{box_kat.Text}%'";
             string fil = $"Назва Like '%{text_serch.Text}%'";
-            string kra = $"Країна Like '%{box_kat.Text}%'";
+            string kra = $"Країна Like '%{box_kra.Text}%'";
             if (box_kat.Text.ToString() != bez_fil)
                 fil += p + kat;
             if (box_kra.Text.ToString() != bez_fil)
@@ -144,11 +132,6 @@ namespace kursovoi
         private void text_serch_TextChanged(object sender, EventArgs e)
         {
             filt_g1();
-        }
-
-        private void main_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            //Form1.Close();
         }
 
         private void box_kat_SelectedIndexChanged(object sender, EventArgs e)
@@ -174,7 +157,7 @@ namespace kursovoi
             DataTable dataTable3 = new DataTable();
             Bd.in_datable(queryString, dataTable3);
             box_kra.Items.Add(bez_fil);
-            foreach (DataRow row in dataTable2.Rows) box_kra.Items.Add(row[1].ToString());
+            foreach (DataRow row in dataTable3.Rows) box_kra.Items.Add(row[1].ToString());
             box_kra.SelectedIndex = 0;
         }
 

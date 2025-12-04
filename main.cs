@@ -202,8 +202,13 @@ namespace kursovoi
 
         private void pag_n_ValueChanged(object sender, EventArgs e)
         {
-            //(dataGridView1.DataSource as DataTable).Rows.;
+            //(dataGridView1.DataSource as DataTable).Rows.Count=50;
             
+        }
+
+        private void but_ad_post_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

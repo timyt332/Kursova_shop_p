@@ -44,6 +44,7 @@
             this.label_spiv = new System.Windows.Forms.Label();
             this.button_fil = new System.Windows.Forms.Button();
             this.pag_n = new System.Windows.Forms.NumericUpDown();
+            this.but_ad_post = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilkist_t)).BeginInit();
@@ -79,9 +80,10 @@
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.Location = new System.Drawing.Point(1334, 521);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(116, 44);
+            this.button2.Size = new System.Drawing.Size(145, 44);
             this.button2.TabIndex = 3;
             this.button2.Text = "формування чеку";
             this.button2.UseVisualStyleBackColor = true;
@@ -122,9 +124,10 @@
             // 
             // button3
             // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button3.Location = new System.Drawing.Point(978, 576);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(159, 52);
+            this.button3.Size = new System.Drawing.Size(188, 52);
             this.button3.TabIndex = 6;
             this.button3.Text = "Підтверження продажу";
             this.button3.UseVisualStyleBackColor = true;
@@ -204,7 +207,7 @@
             // button_fil
             // 
             this.button_fil.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button_fil.Location = new System.Drawing.Point(3, 450);
+            this.button_fil.Location = new System.Drawing.Point(10, 377);
             this.button_fil.Name = "button_fil";
             this.button_fil.Size = new System.Drawing.Size(184, 44);
             this.button_fil.TabIndex = 14;
@@ -236,11 +239,23 @@
             0});
             this.pag_n.ValueChanged += new System.EventHandler(this.pag_n_ValueChanged);
             // 
+            // but_ad_post
+            // 
+            this.but_ad_post.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.but_ad_post.Location = new System.Drawing.Point(10, 555);
+            this.but_ad_post.Name = "but_ad_post";
+            this.but_ad_post.Size = new System.Drawing.Size(206, 52);
+            this.but_ad_post.TabIndex = 16;
+            this.but_ad_post.Text = "Додати постачання";
+            this.but_ad_post.UseVisualStyleBackColor = true;
+            this.but_ad_post.Click += new System.EventHandler(this.but_ad_post_Click);
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1855, 745);
+            this.Controls.Add(this.but_ad_post);
             this.Controls.Add(this.pag_n);
             this.Controls.Add(this.button_fil);
             this.Controls.Add(this.label_spiv);
@@ -290,5 +305,6 @@
         private System.Windows.Forms.Label label_spiv;
         private System.Windows.Forms.Button button_fil;
         private System.Windows.Forms.NumericUpDown pag_n;
+        private System.Windows.Forms.Button but_ad_post;
     }
 }

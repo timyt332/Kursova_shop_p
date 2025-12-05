@@ -222,7 +222,15 @@ namespace kursovoi
 
         private void but_ad_post_Click(object sender, EventArgs e)
         {
-
+            string name = "";
+            using (Postach form = new Postach())
+            {
+                
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                        name = form.UserInput.ToString();
+                }
+            }
         }
     }
 }

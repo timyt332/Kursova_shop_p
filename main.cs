@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Mysqlx.Resultset;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,12 +26,10 @@ namespace kursovoi
         }
         private void main_Load(object sender, EventArgs e)
         {
-            string queryString = "SELECT * FROM tovar";
-            DataTable dataTable = new DataTable();
-            Bd.in_datable(queryString, dataTable);
-            dataGridView1.DataSource = dataTable;
+            dataupdate1();
+            dataupdate2();
 
-            queryString = "SELECT * FROM kategoria";
+            string queryString = "SELECT * FROM kategoria";
             DataTable dataTable2 = new DataTable();
             Bd.in_datable(queryString, dataTable2);
             box_kat.Items.Add(bez_fil);
@@ -79,36 +78,58 @@ namespace kursovoi
                 e.Cancel = true; // Скасувати закриття
             }
         }
-
-        
+        public void dataupdate1()
+        {
+            string queryString = "SELECT * FROM tovares";
+            DataTable dataTable = new DataTable();
+            Bd.in_datable(queryString, dataTable);
+            dataGridView1.DataSource = dataTable;
+            //dataGridView1.Columns["t_nam"].HeaderText = "Назва";
+            dataGridView1.Columns["t_cost"].HeaderText = "Ціна";
+            dataGridView1.Columns["t_kilkist"].HeaderText = "Кількість";
+            dataGridView1.Columns["t_id"].Visible=false;
+            dataGridView1.Columns["t_vik"].Visible = false;/*
+            dataGridView1.Columns["c_id"].HeaderText = "Країна";
+            dataGridView1.Columns["k_id"].HeaderText = "Категорія";
+            //*/
+        }
+        public void dataupdate2()
+        {
+            dataGridView2.DataSource = null;
+            dataGridView2.DataSource = cor.Products;
+            dataGridView2.Columns["kilkist"].HeaderText = "Кількість";
+            dataGridView2.Columns["Name"].HeaderText = "Назва";
+            dataGridView2.Columns["Price"].HeaderText = "Ціна";
+            dataGridView2.Columns["id"].Visible = false;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                if ((int)kilkist_t.Value <= Int32.Parse(dataGridView1.SelectedRows[0].Cells[4].Value.ToString()))
+                if ((int)kilkist_t.Value <= Int32.Parse(dataGridView1.SelectedRows[0].Cells["t_kilkist"].Value.ToString()))
                 { 
 
                     var selectedRow = dataGridView1.SelectedRows[0];
-                    //MessageBox.Show(selectedRow.ToString());
-                    Product a = new Product(selectedRow.Cells[0].Value.ToString(), (int)kilkist_t.Value, decimal.Parse( selectedRow.Cells[1].Value.ToString()));
+                    int idT = Int32.Parse(selectedRow.Cells["t_id"].Value.ToString());
+                    foreach (var Product in cor.Products)
+                    {
+                        if (Product.id == idT) { MessageBox.Show("Цей товар вже був доданий"); return ; }
+                    }
+                    Tovare a = new Tovare(idT, selectedRow.Cells["Назва"].Value.ToString(), decimal.Parse( selectedRow.Cells["t_cost"].Value.ToString()), (int)kilkist_t.Value);
                     cor.Products.Add(a);
                 }
-                else { MessageBox.Show("Кількість повинна бути менша "+ dataGridView1.SelectedRows[0].Cells[4].Value.ToString()); }
+                else { MessageBox.Show("Кількість повинна бути менша "+ dataGridView1.SelectedRows[0].Cells["t_kilkist"].Value.ToString()); }
+                decimal summa = 0;
+                foreach (var Product in cor.Products)
+                {
+                    summa += Product.price * Product.kilkist;
+                }
+                label1.Text = "Загальна ціна:" + summa.ToString() + " (грн)";
+                kilkist_t.Value = 1;
+                dataupdate2();
             }
             else { Console.WriteLine("Нічого не виділено"); }
-            dataGridView2.DataSource = null;
-            dataGridView2.DataSource = cor.Products;
-            decimal summa = 0;
-            foreach (var Product in cor.Products)
-            {
-                summa += Product.price * Product.quantity;
-            }
-            label1.Text = "Загальна ціна:" + summa.ToString() + " (грн)";
-            kilkist_t.Value = 1;
-            /*
-            dataGridView2.Columns.Add("name", "Назва");
-            dataGridView2.Columns.Add("quantity", "Кількість");
-            dataGridView2.Columns.Add("price", "Ціна");*/
+            
         }
         
         private void button2_Click(object sender, EventArgs e)
@@ -118,7 +139,7 @@ namespace kursovoi
             decimal summa = 0;
             foreach (var Product in cor.Products)
             {
-                summa+=Product.price* Product.quantity;
+                summa+=Product.price* Product.kilkist;
             }
             label1.Text = "Загальна ціна:"+ summa.ToString()+ " (грн)";
         }
@@ -146,20 +167,13 @@ namespace kursovoi
                     {
                         
                         command.Parameters.AddWithValue("@n", Product.name);
-                        command.Parameters.AddWithValue("@k", Product.quantity);
+                        command.Parameters.AddWithValue("@k", Product.kilkist);
                         i =command.ExecuteNonQuery();
                     }
                 }
                 cor.Products.Clear();
-                dataGridView2.DataSource = null;
-                dataGridView2.DataSource = cor.Products;
-                label1.Text = "Загальна ціна:" ;
-                dataGridView1.DataSource = null;
-                string queryString4 = "SELECT * FROM tovar";
-
-                DataTable dataTable1 = new DataTable();
-                Bd.in_datable(queryString4, dataTable1);
-                dataGridView1.DataSource = dataTable1;
+                dataupdate1();
+                dataupdate2();
 
             }
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace kursovoi
 {
@@ -24,7 +25,7 @@ namespace kursovoi
         public static int id;
         //private static List<Product> products = new List<Product>();
 
-        public static List<Product> Products = new List<Product>(); //{ get => products; set => products = value; }
+        public static List<Tovare> Products = new List<Tovare>(); //{ get => products; set => products = value; }
     }
     public class kategoria
     {
@@ -48,15 +49,20 @@ namespace kursovoi
             this.name = name;
         }
     }
-    public class tovare
+    public class Tovare
     {
-        public int id { get; set; }
+        public int id { get ; set; }
         public string name { get; set; }
-        public tovare() { }
-        public tovare(int id, string name)
+        public decimal price { get; set; }
+        public int kilkist { get; set; }
+        public Tovare() { }
+        //public Tovare(selectedRow = dataGridView1.SelectedRows[0]) { }
+        public Tovare(int id, string name, decimal price, int kilkist)
         {
             this.id = id;
             this.name = name;
+            this.price = price;
+            this.kilkist = kilkist;
         }
     }
     public class spivrobitnik

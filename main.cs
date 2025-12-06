@@ -179,9 +179,11 @@ namespace kursovoi
         }
         private void filt_g1()
         {
+            int storinka_roz = 50;
             string p = $" AND ";
+            string s = $" t_id > {((int)pag_n.Value-1) * storinka_roz} AND t_id <= {(int)pag_n.Value* storinka_roz}";
             string kat = $"Категорія Like '%{box_kat.Text}%'";
-            string fil = $"Назва Like '%{text_serch.Text}%'";
+            string fil = $"Назва Like '%{text_serch.Text}%'"+p+s;
             string kra = $"Країна Like '%{box_kra.Text}%'";
             if (box_kat.Text.ToString() != bez_fil)
                 fil += p + kat;
@@ -228,7 +230,7 @@ namespace kursovoi
                 
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                        name = form.UserInput.ToString();
+                        name = form.get_n().ToString();
                 }
             }
         }

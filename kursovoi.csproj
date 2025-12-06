@@ -76,6 +76,12 @@
     <Compile Include="Postach.Designer.cs">
       <DependentUpon>Postach.cs</DependentUpon>
     </Compile>
+    <Compile Include="Postachanna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Postachanna.Designer.cs">
+      <DependentUpon>Postachanna.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="find_chek.resx">

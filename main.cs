@@ -183,7 +183,8 @@ namespace kursovoi
             string p = $" AND ";
             string s = $" t_id > {((int)pag_n.Value-1) * storinka_roz} AND t_id <= {(int)pag_n.Value* storinka_roz}";
             string kat = $"Категорія Like '%{box_kat.Text}%'";
-            string fil = $"Назва Like '%{text_serch.Text}%'"+p+s;
+            string fil = $"Назва Like '%{text_serch.Text}%'";
+            //fil += p + s;
             string kra = $"Країна Like '%{box_kra.Text}%'";
             if (box_kat.Text.ToString() != bez_fil)
                 fil += p + kat;
@@ -218,7 +219,7 @@ namespace kursovoi
 
         private void pag_n_ValueChanged(object sender, EventArgs e)
         {
-            //(dataGridView1.DataSource as DataTable).Rows.Count=50;
+            filt_g1(); 
             
         }
 
@@ -231,7 +232,13 @@ namespace kursovoi
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                         name = form.get_n().ToString();
+                    using (Postachanna form1 = new Postachanna())
+                    {
+                        form1.post(name);
+                        form1.ShowDialog();
+                    }
                 }
+
             }
         }
     }

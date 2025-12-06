@@ -96,6 +96,9 @@
     <EmbeddedResource Include="Postach.resx">
       <DependentUpon>Postach.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Postachanna.resx">
+      <DependentUpon>Postachanna.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -56,7 +56,6 @@ namespace kursovoi
         public decimal price { get; set; }
         public int kilkist { get; set; }
         public Tovare() { }
-        //public Tovare(selectedRow = dataGridView1.SelectedRows[0]) { }
         public Tovare(int id, string name, decimal price, int kilkist)
         {
             this.id = id;

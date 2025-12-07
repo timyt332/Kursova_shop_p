@@ -100,6 +100,7 @@ namespace kursovoi
             dataGridView2.Columns["kilkist"].HeaderText = "Кількість";
             dataGridView2.Columns["Name"].HeaderText = "Назва";
             dataGridView2.Columns["Price"].HeaderText = "Ціна";
+            dataGridView2.Columns["Summa"].HeaderText = "Сума";
             dataGridView2.Columns["id"].Visible = false;
         }
         private void button1_Click(object sender, EventArgs e)

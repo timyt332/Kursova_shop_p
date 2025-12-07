@@ -55,6 +55,7 @@ namespace kursovoi
         public string name { get; set; }
         public decimal price { get; set; }
         public int kilkist { get; set; }
+        public decimal summa{ get; set; }
         public Tovare() { }
         public Tovare(int id, string name, decimal price, int kilkist)
         {
@@ -62,6 +63,7 @@ namespace kursovoi
             this.name = name;
             this.price = price;
             this.kilkist = kilkist;
+            this.summa = price* kilkist;
         }
     }
     public class spivrobitnik

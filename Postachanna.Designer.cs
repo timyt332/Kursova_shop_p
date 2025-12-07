@@ -278,7 +278,9 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Name = "Postachanna";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Postachanna";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Postachanna_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pag_n)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilkist_t)).EndInit();

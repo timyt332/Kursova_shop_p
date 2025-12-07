@@ -35,7 +35,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.date1 = new System.Windows.Forms.MonthCalendar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rButV = new System.Windows.Forms.RadioButton();
             this.rButPr = new System.Windows.Forms.RadioButton();
             this.rButDay = new System.Windows.Forms.RadioButton();
             this.date2 = new System.Windows.Forms.MonthCalendar();
@@ -106,12 +106,14 @@
             // date1
             // 
             this.date1.Location = new System.Drawing.Point(18, 293);
+            this.date1.MaxSelectionCount = 1;
             this.date1.Name = "date1";
             this.date1.TabIndex = 23;
+            this.date1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.data_p);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.rButV);
             this.groupBox1.Controls.Add(this.rButPr);
             this.groupBox1.Controls.Add(this.rButDay);
             this.groupBox1.Location = new System.Drawing.Point(11, 205);
@@ -121,16 +123,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // radioButton1
+            // rButV
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(55, 42);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
-            this.radioButton1.TabIndex = 2;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Без фільтру";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rButV.AutoSize = true;
+            this.rButV.Location = new System.Drawing.Point(55, 42);
+            this.rButV.Name = "rButV";
+            this.rButV.Size = new System.Drawing.Size(85, 17);
+            this.rButV.TabIndex = 2;
+            this.rButV.TabStop = true;
+            this.rButV.Text = "Без фільтру";
+            this.rButV.UseVisualStyleBackColor = true;
+            this.rButV.CheckedChanged += new System.EventHandler(this.rbut_d);
             // 
             // rButPr
             // 
@@ -142,6 +145,7 @@
             this.rButPr.TabStop = true;
             this.rButPr.Text = "Проміжок часу";
             this.rButPr.UseVisualStyleBackColor = true;
+            this.rButPr.CheckedChanged += new System.EventHandler(this.rbut_d);
             // 
             // rButDay
             // 
@@ -153,13 +157,15 @@
             this.rButDay.TabStop = true;
             this.rButDay.Text = "Окремий день";
             this.rButDay.UseVisualStyleBackColor = true;
-            this.rButDay.CheckedChanged += new System.EventHandler(this.rButDay_CheckedChanged);
+            this.rButDay.CheckedChanged += new System.EventHandler(this.rbut_d);
             // 
             // date2
             // 
             this.date2.Location = new System.Drawing.Point(18, 473);
+            this.date2.MaxSelectionCount = 1;
             this.date2.Name = "date2";
             this.date2.TabIndex = 25;
+            this.date2.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.data_p);
             // 
             // find_chek
             // 
@@ -196,7 +202,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rButPr;
         private System.Windows.Forms.RadioButton rButDay;
+        private System.Windows.Forms.RadioButton rButV;
         private System.Windows.Forms.MonthCalendar date2;
-        private System.Windows.Forms.RadioButton radioButton1;
     }
 }

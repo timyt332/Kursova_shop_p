@@ -51,10 +51,9 @@ namespace kursovoi
 
         private void Postachanna_Load(object sender, EventArgs e)
         {
-
+            cor.Products.Clear();
             dataupdate1();
             dataupdate2();
-
             string queryString = "SELECT * FROM kategoria";
             DataTable dataTable2 = new DataTable();
             Bd.in_datable(queryString, dataTable2);
@@ -125,7 +124,7 @@ namespace kursovoi
             using (MySqlConnection connection = new MySqlConnection(Bd.get_st()))
             {
                 connection.Open();
-                string queryString = "call add_prodag(@CustomerID,@PostId);";
+                string queryString = "call add_nakladna(@CustomerID,@PostId);";
 
                 using (MySqlCommand command = new MySqlCommand(queryString, connection))
                 {
@@ -133,8 +132,8 @@ namespace kursovoi
                     command.Parameters.AddWithValue("@PostId", postid);
                     i = command.ExecuteNonQuery();
 
-                }/*
-                string queryString2 = "call add_prodag_list(@n,@k);";
+                }
+                string queryString2 = "call add_post_list(@n,@k,@p);";
                 foreach (var Product in cor.Products)
                 {
                     using (MySqlCommand command = new MySqlCommand(queryString2, connection))
@@ -142,14 +141,40 @@ namespace kursovoi
 
                         command.Parameters.AddWithValue("@n", Product.name);
                         command.Parameters.AddWithValue("@k", Product.kilkist);
+                        command.Parameters.AddWithValue("@p", Product.price);
                         i = command.ExecuteNonQuery();
                     }
-                }*/
+                }
                 cor.Products.Clear();
                 dataupdate1();
                 dataupdate2();
-
+                postid = 0;
             }
+        }
+
+        private void Postachanna_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(cor.Products.Count > 0) 
+            { 
+                DialogResult result = MessageBox.Show(
+                    "Ви впевнені, що хочете вийти?" +
+                    "\nВ вас залишилисася незакрита накладна!",
+                    "Підтвердження",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true; // Скасувати закриття
+                }
+            }
+            postid = 0;
+            cor.Products.Clear();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

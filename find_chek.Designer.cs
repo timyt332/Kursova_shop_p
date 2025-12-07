@@ -28,38 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.box_kra = new System.Windows.Forms.ComboBox();
-            this.box_kat = new System.Windows.Forms.ComboBox();
             this.text_serch = new System.Windows.Forms.TextBox();
             this.kilkist_t = new System.Windows.Forms.NumericUpDown();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
+            this.date1 = new System.Windows.Forms.MonthCalendar();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rButPr = new System.Windows.Forms.RadioButton();
+            this.rButDay = new System.Windows.Forms.RadioButton();
+            this.date2 = new System.Windows.Forms.MonthCalendar();
             ((System.ComponentModel.ISupportInitialize)(this.kilkist_t)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(2, 249);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 24);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "Країна";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(2, 187);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 24);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Категорія";
             // 
             // label2
             // 
@@ -70,24 +53,6 @@
             this.label2.Size = new System.Drawing.Size(66, 24);
             this.label2.TabIndex = 19;
             this.label2.Text = "Пошук";
-            // 
-            // box_kra
-            // 
-            this.box_kra.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.box_kra.FormattingEnabled = true;
-            this.box_kra.Location = new System.Drawing.Point(2, 276);
-            this.box_kra.Name = "box_kra";
-            this.box_kra.Size = new System.Drawing.Size(132, 32);
-            this.box_kra.TabIndex = 18;
-            // 
-            // box_kat
-            // 
-            this.box_kat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.box_kat.FormattingEnabled = true;
-            this.box_kat.Location = new System.Drawing.Point(2, 214);
-            this.box_kat.Name = "box_kat";
-            this.box_kat.Size = new System.Drawing.Size(132, 32);
-            this.box_kat.TabIndex = 17;
             // 
             // text_serch
             // 
@@ -138,39 +103,100 @@
             this.button1.Text = "Додати в кошик";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // date1
+            // 
+            this.date1.Location = new System.Drawing.Point(18, 293);
+            this.date1.Name = "date1";
+            this.date1.TabIndex = 23;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.rButPr);
+            this.groupBox1.Controls.Add(this.rButDay);
+            this.groupBox1.Location = new System.Drawing.Point(11, 205);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 76);
+            this.groupBox1.TabIndex = 24;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(55, 42);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(85, 17);
+            this.radioButton1.TabIndex = 2;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Без фільтру";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // rButPr
+            // 
+            this.rButPr.AutoSize = true;
+            this.rButPr.Location = new System.Drawing.Point(100, 19);
+            this.rButPr.Name = "rButPr";
+            this.rButPr.Size = new System.Drawing.Size(100, 17);
+            this.rButPr.TabIndex = 1;
+            this.rButPr.TabStop = true;
+            this.rButPr.Text = "Проміжок часу";
+            this.rButPr.UseVisualStyleBackColor = true;
+            // 
+            // rButDay
+            // 
+            this.rButDay.AutoSize = true;
+            this.rButDay.Location = new System.Drawing.Point(1, 19);
+            this.rButDay.Name = "rButDay";
+            this.rButDay.Size = new System.Drawing.Size(98, 17);
+            this.rButDay.TabIndex = 0;
+            this.rButDay.TabStop = true;
+            this.rButDay.Text = "Окремий день";
+            this.rButDay.UseVisualStyleBackColor = true;
+            this.rButDay.CheckedChanged += new System.EventHandler(this.rButDay_CheckedChanged);
+            // 
+            // date2
+            // 
+            this.date2.Location = new System.Drawing.Point(18, 473);
+            this.date2.Name = "date2";
+            this.date2.TabIndex = 25;
+            // 
             // find_chek
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 572);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(1260, 653);
+            this.Controls.Add(this.date2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.date1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.box_kra);
-            this.Controls.Add(this.box_kat);
             this.Controls.Add(this.text_serch);
             this.Controls.Add(this.kilkist_t);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Name = "find_chek";
             this.Text = "find_chek";
+            this.Load += new System.EventHandler(this.find_chek_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kilkist_t)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox box_kra;
-        private System.Windows.Forms.ComboBox box_kat;
         private System.Windows.Forms.TextBox text_serch;
         private System.Windows.Forms.NumericUpDown kilkist_t;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MonthCalendar date1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rButPr;
+        private System.Windows.Forms.RadioButton rButDay;
+        private System.Windows.Forms.MonthCalendar date2;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }

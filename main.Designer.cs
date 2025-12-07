@@ -45,6 +45,7 @@
             this.button_fil = new System.Windows.Forms.Button();
             this.pag_n = new System.Windows.Forms.NumericUpDown();
             this.but_ad_post = new System.Windows.Forms.Button();
+            this.but_clear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilkist_t)).BeginInit();
@@ -125,9 +126,9 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(978, 576);
+            this.button3.Location = new System.Drawing.Point(924, 587);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(188, 52);
+            this.button3.Size = new System.Drawing.Size(230, 52);
             this.button3.TabIndex = 6;
             this.button3.Text = "Підтверження продажу";
             this.button3.UseVisualStyleBackColor = true;
@@ -250,11 +251,23 @@
             this.but_ad_post.UseVisualStyleBackColor = true;
             this.but_ad_post.Click += new System.EventHandler(this.but_ad_post_Click);
             // 
+            // but_clear
+            // 
+            this.but_clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.but_clear.Location = new System.Drawing.Point(1229, 587);
+            this.but_clear.Name = "but_clear";
+            this.but_clear.Size = new System.Drawing.Size(188, 52);
+            this.but_clear.TabIndex = 17;
+            this.but_clear.Text = "Очистити продаж";
+            this.but_clear.UseVisualStyleBackColor = true;
+            this.but_clear.Click += new System.EventHandler(this.but_clear_Click);
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1855, 745);
+            this.Controls.Add(this.but_clear);
             this.Controls.Add(this.but_ad_post);
             this.Controls.Add(this.pag_n);
             this.Controls.Add(this.button_fil);
@@ -306,5 +319,6 @@
         private System.Windows.Forms.Button button_fil;
         private System.Windows.Forms.NumericUpDown pag_n;
         private System.Windows.Forms.Button but_ad_post;
+        private System.Windows.Forms.Button but_clear;
     }
 }

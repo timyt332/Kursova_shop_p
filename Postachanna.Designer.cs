@@ -195,6 +195,7 @@
             this.button2.TabIndex = 20;
             this.button2.Text = "Вихід";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dataGridView2
             // 
@@ -226,11 +227,11 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(38, 9);
+            this.label5.Location = new System.Drawing.Point(14, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 29);
+            this.label5.Size = new System.Drawing.Size(160, 29);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Gjcn";
+            this.label5.Text = "Постачальник:";
             // 
             // price_z
             // 
@@ -282,6 +283,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Postachanna";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Postachanna_FormClosing);
             this.Load += new System.EventHandler(this.Postachanna_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pag_n)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilkist_t)).EndInit();

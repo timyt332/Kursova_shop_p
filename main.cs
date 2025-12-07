@@ -26,9 +26,9 @@ namespace kursovoi
         }
         private void main_Load(object sender, EventArgs e)
         {
+            cor.Products.Clear();
             dataupdate1();
             dataupdate2();
-
             string queryString = "SELECT * FROM kategoria";
             DataTable dataTable2 = new DataTable();
             Bd.in_datable(queryString, dataTable2);
@@ -135,48 +135,47 @@ namespace kursovoi
         
         private void button2_Click(object sender, EventArgs e)
         {
-            dataGridView2.DataSource = null;
-            dataGridView2.DataSource = cor.Products;
-            decimal summa = 0;
-            foreach (var Product in cor.Products)
+            using (find_chek form1 = new find_chek())
             {
-                summa+=Product.price* Product.kilkist;
+                form1.ShowDialog();
             }
-            label1.Text = "Загальна ціна:"+ summa.ToString()+ " (грн)";
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            DataTable dataTable = new DataTable();
-            int i = 0;
-            using (MySqlConnection connection = new MySqlConnection(Bd.get_st()))
+            if (cor.Products.Count > 0)
             {
-                connection.Open();
-                string queryString = "call add_prodag(@CustomerID);";
+                DataTable dataTable = new DataTable();
+                int i = 0;
+                using (MySqlConnection connection = new MySqlConnection(Bd.get_st()))
+                {
+                    connection.Open();
+                    string queryString = "call add_prodag(@CustomerID);";
 
                     using (MySqlCommand command = new MySqlCommand(queryString, connection))
                     {
                         command.Parameters.AddWithValue("@CustomerID", cor.id);
-                    
-                        i =command.ExecuteNonQuery();
+
+                        i = command.ExecuteNonQuery();
 
                     }
                     string queryString2 = "call add_prodag_list(@n,@k);";
-                foreach (var Product in cor.Products)
-                {
-                    using (MySqlCommand command = new MySqlCommand(queryString2, connection))
+                    foreach (var Product in cor.Products)
                     {
-                        
-                        command.Parameters.AddWithValue("@n", Product.name);
-                        command.Parameters.AddWithValue("@k", Product.kilkist);
-                        i =command.ExecuteNonQuery();
-                    }
-                }
-                cor.Products.Clear();
-                dataupdate1();
-                dataupdate2();
+                        using (MySqlCommand command = new MySqlCommand(queryString2, connection))
+                        {
 
+                            command.Parameters.AddWithValue("@n", Product.name);
+                            command.Parameters.AddWithValue("@k", Product.kilkist);
+                            i = command.ExecuteNonQuery();
+                        }
+                    }
+                    cor.Products.Clear();
+                    dataupdate1();
+                    dataupdate2();
+                }
             }
+            else { MessageBox.Show("Продаж пустий!"); }
         }
         private void filt_g1()
         {
@@ -231,8 +230,24 @@ namespace kursovoi
             {
                 form1.ShowDialog();
             }
+            cor.Products.Clear();
             this.Show();
                 
+        }
+
+        private void but_clear_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Ви впевнені, що хочете очистити продаж?",
+                "Підтвердження",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                cor.Products.Clear();
+                dataupdate2();
+            }
         }
     }
 }

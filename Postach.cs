@@ -14,7 +14,9 @@ namespace kursovoi
     public partial class Postach : Form
     {
         string name = "";
+        int id;
         public string get_n() { return name; }
+        public int get_id() { return id; }
         public Postach()
         {
             InitializeComponent();
@@ -31,7 +33,8 @@ namespace kursovoi
         {
             if (dataGridView1.SelectedRows.Count == 1)
             {
-                name = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                name = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                id= Int32.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
                 this.DialogResult = DialogResult.OK;
                 this.Close();
 

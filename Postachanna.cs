@@ -13,6 +13,7 @@ namespace kursovoi
 {
     public partial class Postachanna : Form
     {
+        int postid=0;
         string bez_fil = "Усі";
         public Postachanna()
         {
@@ -111,6 +112,44 @@ namespace kursovoi
             dataGridView2.Columns["Price"].HeaderText = "Ціна";
             dataGridView2.Columns["Summa"].HeaderText = "Сума";
             dataGridView2.Columns["id"].Visible = false;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //DataTable dataTable = new DataTable();
+            int i = 0;
+            if (postid == 0)
+            {
+                using (Postach f = new Postach()) { if (f.ShowDialog() == DialogResult.OK) postid = f.get_id(); else { return; } }
+            } 
+            using (MySqlConnection connection = new MySqlConnection(Bd.get_st()))
+            {
+                connection.Open();
+                string queryString = "call add_prodag(@CustomerID,@PostId);";
+
+                using (MySqlCommand command = new MySqlCommand(queryString, connection))
+                {
+                    command.Parameters.AddWithValue("@CustomerID", cor.id);
+                    command.Parameters.AddWithValue("@PostId", postid);
+                    i = command.ExecuteNonQuery();
+
+                }/*
+                string queryString2 = "call add_prodag_list(@n,@k);";
+                foreach (var Product in cor.Products)
+                {
+                    using (MySqlCommand command = new MySqlCommand(queryString2, connection))
+                    {
+
+                        command.Parameters.AddWithValue("@n", Product.name);
+                        command.Parameters.AddWithValue("@k", Product.kilkist);
+                        i = command.ExecuteNonQuery();
+                    }
+                }*/
+                cor.Products.Clear();
+                dataupdate1();
+                dataupdate2();
+
+            }
         }
     }
 }

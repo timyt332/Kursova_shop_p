@@ -226,21 +226,13 @@ namespace kursovoi
 
         private void but_ad_post_Click(object sender, EventArgs e)
         {
-            string name = "";
-            using (Postach form = new Postach())
+            this.Hide();
+            using (Postachanna form1 = new Postachanna())
             {
-                
-                if (form.ShowDialog() == DialogResult.OK)
-                {
-                        name = form.get_n().ToString();
-                    using (Postachanna form1 = new Postachanna())
-                    {
-                        form1.post(name);
-                        form1.ShowDialog();
-                    }
-                }
-
+                form1.ShowDialog();
             }
+            this.Show();
+                
         }
     }
 }

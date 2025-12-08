@@ -39,9 +39,11 @@
             this.rButPr = new System.Windows.Forms.RadioButton();
             this.rButDay = new System.Windows.Forms.RadioButton();
             this.date2 = new System.Windows.Forms.MonthCalendar();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.kilkist_t)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -121,7 +123,7 @@
             this.groupBox1.Size = new System.Drawing.Size(200, 76);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Фільтр дати";
             // 
             // rButV
             // 
@@ -167,11 +169,20 @@
             this.date2.TabIndex = 25;
             this.date2.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.data_p);
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(773, 12);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(522, 462);
+            this.dataGridView2.TabIndex = 26;
+            // 
             // find_chek
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1260, 653);
+            this.ClientSize = new System.Drawing.Size(1365, 675);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.date2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.date1);
@@ -187,6 +198,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,5 +216,6 @@
         private System.Windows.Forms.RadioButton rButDay;
         private System.Windows.Forms.RadioButton rButV;
         private System.Windows.Forms.MonthCalendar date2;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }

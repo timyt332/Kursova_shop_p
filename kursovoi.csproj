@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Add_tov.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_tov.Designer.cs">
+      <DependentUpon>Add_tov.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bd.cs" />
     <Compile Include="cor.cs" />
     <Compile Include="find_chek.cs">
@@ -84,6 +90,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Add_tov.resx">
+      <DependentUpon>Add_tov.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="find_chek.resx">
       <DependentUpon>find_chek.cs</DependentUpon>
     </EmbeddedResource>

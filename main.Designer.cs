@@ -46,6 +46,7 @@
             this.pag_n = new System.Windows.Forms.NumericUpDown();
             this.but_ad_post = new System.Windows.Forms.Button();
             this.but_clear = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilkist_t)).BeginInit();
@@ -68,6 +69,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(222, 24);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(610, 525);
             this.dataGridView1.TabIndex = 1;
             // 
@@ -262,11 +264,23 @@
             this.but_clear.UseVisualStyleBackColor = true;
             this.but_clear.Click += new System.EventHandler(this.but_clear_Click);
             // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button4.Location = new System.Drawing.Point(635, 564);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(162, 52);
+            this.button4.TabIndex = 18;
+            this.button4.Text = "Додати Товар";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1855, 745);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.but_clear);
             this.Controls.Add(this.but_ad_post);
             this.Controls.Add(this.pag_n);
@@ -320,5 +334,6 @@
         private System.Windows.Forms.NumericUpDown pag_n;
         private System.Windows.Forms.Button but_ad_post;
         private System.Windows.Forms.Button but_clear;
+        private System.Windows.Forms.Button button4;
     }
 }

@@ -63,6 +63,7 @@
             this.text_serch.Name = "text_serch";
             this.text_serch.Size = new System.Drawing.Size(132, 29);
             this.text_serch.TabIndex = 16;
+            this.text_serch.TextChanged += new System.EventHandler(this.text_serch_TextChanged);
             // 
             // kilkist_t
             // 
@@ -92,8 +93,10 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(217, 12);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(522, 462);
             this.dataGridView1.TabIndex = 14;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // button1
             // 

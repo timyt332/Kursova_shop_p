@@ -45,6 +45,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.price_z = new System.Windows.Forms.NumericUpDown();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pag_n)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kilkist_t)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -257,11 +258,23 @@
             0,
             0});
             // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button4.Location = new System.Drawing.Point(46, 593);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(282, 44);
+            this.button4.TabIndex = 33;
+            this.button4.Text = "Додати постачальника";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Postachanna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1582, 740);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.price_z);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pag_n);
@@ -313,5 +326,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown price_z;
+        private System.Windows.Forms.Button button4;
     }
 }

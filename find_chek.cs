@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Runtime.InteropServices.ComTypes;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -41,17 +42,36 @@ namespace kursovoi
                 MessageBox.Show(w.ToString());
             }
         }
-
-        private void posh_dat(DateTime datS,DateTime datE) 
+        private void posh_dat(string poshuk)
         {
 
-            string queryString = "SELECT * FROM prodagis where `Дата`  >= @StartDate AND `Дата` < @EndDate";
-
+            string queryString = "select p.pr_id as `Номер Продажу`, concat(s.s_fnam, \" \", s.s_nam, \" \", s.s_mnam) as `ПІБ` ,pr.pr_date as `Дата`,sum(p.spr_kilkist * t.t_cost) as `Cума` From spisok_prodag p join tovare t using (t_id) join prodag pr using (pr_id) join spivrobitnik s using (s_id) WHERE p.pr_id = ANY(SELECT pr_id FROM prodagi WHERE `назва` like @Poshuk) group by p.pr_id order by pr_id desc";
+            poshuk ="%"+ poshuk+"%";
             DataTable dataTable = new DataTable();
             using (MySqlConnection connection = new MySqlConnection(Bd.get_st()))
             {
                 using (MySqlCommand command = new MySqlCommand(queryString, connection))
                 {
+                    command.Parameters.AddWithValue("@Poshuk", poshuk);
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        adapter.Fill(dataTable);
+                    }
+                }
+            }
+            dataGridView1.DataSource = dataTable;
+        }
+        private void posh_dat(string poshuk,DateTime datS,DateTime datE) 
+        {
+
+            string queryString = "select p.pr_id as `Номер Продажу`, concat(s.s_fnam, \" \", s.s_nam, \" \", s.s_mnam) as `ПІБ` ,pr.pr_date as `Дата`,sum(p.spr_kilkist * t.t_cost) as `Cума` From spisok_prodag p join tovare t using (t_id) join prodag pr using (pr_id) join spivrobitnik s using (s_id) WHERE p.pr_id = ANY(SELECT pr_id FROM prodagi WHERE `назва` like @Poshuk) group by p.pr_id order by pr_id desc";
+            poshuk = "%" + poshuk + "%";
+            DataTable dataTable = new DataTable();
+            using (MySqlConnection connection = new MySqlConnection(Bd.get_st()))
+            {
+                using (MySqlCommand command = new MySqlCommand(queryString, connection))
+                {
+                    command.Parameters.AddWithValue("@Poshuk", poshuk);
                     command.Parameters.AddWithValue("@StartDate", datS);
                     command.Parameters.AddWithValue("@EndDate", datE);
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
@@ -80,18 +100,18 @@ namespace kursovoi
                 date2.Hide();
             }
         }
-        private void data_p(object sender, DateRangeEventArgs e) 
+        private void data_p()
         {
-            if (rButDay.Checked) 
-            { 
+            if (rButDay.Checked)
+            {
                 string d = date1.SelectionStart.ToString();
                 DateTime datS;
-                DateTime datE ;
+                DateTime datE;
                 datS = date1.SelectionStart;
                 datE = date1.SelectionStart.AddDays(1);
-                posh_dat(datS, datE);
+                posh_dat(text_serch.Text, datS, datE);
             }
-            else if (rButPr.Checked) 
+            else if (rButPr.Checked)
             {
                 string d = date1.SelectionStart.ToString();
                 DateTime datS;
@@ -106,15 +126,33 @@ namespace kursovoi
                     datE = date1.SelectionStart.AddDays(1);
                     datS = date2.SelectionStart;
                 }
-                posh_dat(datS, datE);
+                posh_dat(text_serch.Text, datS, datE);
             }
-            else if (rButV.Checked) 
+            else if (rButV.Checked)
             {
-                string queryString = "SELECT * FROM prodagis";
+                posh_dat(text_serch.Text);
+            }
+        }
+        private void data_p(object sender, DateRangeEventArgs e) 
+        {
+            data_p();
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                string id = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                string queryString = "SELECT * FROM prodagi where pr_id = " + id;
                 DataTable dataTable = new DataTable();
                 Bd.in_datable(queryString, dataTable);
-                dataGridView1.DataSource = dataTable;
+                dataGridView2.DataSource = dataTable;
             }
+        }
+
+        private void text_serch_TextChanged(object sender, EventArgs e)
+        {
+            data_p();
         }
     }
 }

@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="add_post.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add_post.Designer.cs">
+      <DependentUpon>add_post.cs</DependentUpon>
+    </Compile>
     <Compile Include="Add_tov.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="add_post.resx">
+      <DependentUpon>add_post.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Add_tov.resx">
       <DependentUpon>Add_tov.cs</DependentUpon>
     </EmbeddedResource>

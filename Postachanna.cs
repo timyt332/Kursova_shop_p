@@ -176,5 +176,11 @@ namespace kursovoi
         {
             this.Close();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            using (add_post add = new add_post())
+            { if (add.ShowDialog() == DialogResult.OK) postid = add.id_post(); }
+        }
     }
 }

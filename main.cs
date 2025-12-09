@@ -252,7 +252,8 @@ namespace kursovoi
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            using (Add_tov a = new Add_tov())
+            {a.ShowDialog(); }
         }
     }
 }
